@@ -15,19 +15,18 @@ const QuestionsList = () => {
   const [currentQuestionNum, setCurrentQuestion] = useState(0);
   const history = useHistory();
   //   student answer
-  const [answer, setAnswer] = useState("");
+  const [answer, setAnswer] = useState(null);
 
   //  use checkedState to clear checked value in the next question'choices
-  const [checkedState, setCheckedState] = useState("");
+  const [checkedState, setCheckedState] = useState(null);
 
   const handleNextQuestion = () => {
     //   clear current checked value
-    setCheckedState("");
+    setCheckedState(null);
     if (answer == questions[currentQuestionNum].answer) {
       dispatch(addQuestionResult(1));
-      setAnswer("");
     }
-
+    setAnswer(null);
     if (currentQuestionNum < questions.length - 1) {
       setCurrentQuestion(currentQuestionNum + 1);
     } else {
@@ -65,7 +64,7 @@ const QuestionsList = () => {
                      ))}
                    </ol>
               </Card.Text>
-              <Button onClick={handleNextQuestion} variant="primary">
+              <Button onClick={handleNextQuestion}  disabled={!answer} variant="primary">
                 Next
               </Button>
             </Card.Body>
