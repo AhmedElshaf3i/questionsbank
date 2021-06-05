@@ -1,0 +1,4 @@
+export const ADD_QUESTIONS="ADD_QUESTIONS";
+export const ADD_STUDENT_NAME="ADD_STUDENT_NAME";
+export const ADD_ANSWER="ADD_ANSWER";
+export const CLEAR_STATE="CLEAR_STATE";
